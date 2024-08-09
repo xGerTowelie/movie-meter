@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import RestartButton from "@/components/RestartButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +18,15 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={cn(inter.className, "text-foreground bg-background flex flex-col justify-center items-center min-h-screen w-screen p-10")}>
-                {children}
+            <body className={cn(inter.className, "flex flex-col text-foreground bg-background min-h-screen w-screen")}>
+                <nav className="sticky top-0 flex flex-row items-center w-full bg-foreground/90 text-background shadow-sm backdrop-blur p-4">
+                    <h1 className="text-3xl"><strong>Movie</strong> Meter</h1>
+                    <span className="flex-grow"></span>
+                    <RestartButton />
+                </nav>
+                <div className="flex flex-col flex-grow justify-center items-center p-10">
+                    {children}
+                </div>
             </body>
         </html>
     );
