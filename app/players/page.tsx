@@ -14,7 +14,7 @@ export default function Page() {
 
     useEffect(() => {
         if (players.length > 1) {
-            inputRefs.current[players.length - 1]?.focus() // Focus on the last added input
+            inputRefs.current[players.length - 1]?.focus()
         }
     }, [players])
 
@@ -51,7 +51,7 @@ export default function Page() {
                     <Input
                         type="text"
                         value={player}
-                        ref={el => inputRefs.current[index] = el}
+                        ref={(el: any) => inputRefs.current[index] = el}
                         onChange={(e) => changePlayer(e.target.value, index)}
                         placeholder="New player"
                     />

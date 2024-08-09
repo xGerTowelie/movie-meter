@@ -14,7 +14,7 @@ export default function Page() {
 
     useEffect(() => {
         if (movies.length > 1) {
-            inputRefs.current[movies.length - 1]?.focus() // Focus on the last added input
+            inputRefs.current[movies.length - 1]?.focus()
         }
     }, [movies])
 
@@ -24,7 +24,7 @@ export default function Page() {
         }
     }, [])
 
-    function addMovies(e: React.MouseEvent<HTMLButtonElement>) {
+    function addMovies(e: any) {
         e.preventDefault()
         setMovies(prev => [...prev, ""])
     }
@@ -55,7 +55,7 @@ export default function Page() {
                     <Input
                         type="text"
                         value={player}
-                        ref={el => inputRefs.current[index] = el}
+                        ref={(el: any) => inputRefs.current[index] = el}
                         onChange={(e) => changeMovies(e.target.value, index)}
                         placeholder="New movie"
                     />
